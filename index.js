@@ -365,6 +365,9 @@ DeviceClient.prototype.ensureEventingServer = function(callback) {
           });
         });
 
+        // Send 200 response to UPnP device
+        res.statusCode = 200;
+        res.end()
       }));
 
     });
