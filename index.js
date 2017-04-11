@@ -321,11 +321,13 @@ DeviceClient.prototype.unsubscribe = function(serviceId, listener) {
     };
 
     var req = http.request(options, function(res) {
-      if(res.statusCode !== 200) {
-        var err = new Error('UNSUBSCRIBE error');
-        err.statusCode = res.statusCode;
-        return self.emit('error', err);
-      }
+    	// FIXME disabled throwing errors on non 200 response since a different response will also most likely indicate
+	    // that the webhook is not registered anymore
+      // if(res.statusCode !== 200) {
+      //   var err = new Error('UNSUBSCRIBE error');
+      //   err.statusCode = res.statusCode;
+      //   return self.emit('error', err);
+      // }
 
       clearTimeout(self.subscriptions[serviceId].timer);
       delete self.subscriptions[serviceId];
