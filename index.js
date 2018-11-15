@@ -109,7 +109,7 @@ DeviceClient.prototype.callAction = function(serviceId, actionName, params, call
     Object.keys(params).forEach(function(paramName) {
       var tmp = et.SubElement(action, paramName);
       var value = params[paramName];
-      console.log(paramName, value, typeof value === 'object', value.constructor, value.constructor.name === 'Element');
+      //console.log(paramName, value, typeof value === 'object', value.constructor, value.constructor.name === 'Element');
       if(typeof value === 'object' && value.constructor && value.constructor.name === 'Element'){
         return tmp.append(value);
       }
@@ -123,7 +123,7 @@ DeviceClient.prototype.callAction = function(serviceId, actionName, params, call
       xml_declaration: true,
     });
 
-    console.log('SENDING', xml);
+    //console.log('SENDING', xml);
 
     // Send action request
     var options = parseUrl(service.controlURL);
