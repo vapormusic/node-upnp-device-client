@@ -1,3 +1,7 @@
+This branch has the following updates:
+1. Removed several console.log statements
+
+
 upnp-device-client
 ==================
 ### A simple and versatile UPnP device client
