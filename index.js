@@ -98,11 +98,11 @@ DeviceClient.prototype.callAction = function(serviceId, actionName, params, call
     var service = self.deviceDescription.services[serviceId];
 
     // Build SOAP action body
-    var envelope = et.Element('SOAP-ENV:Envelope');
-    envelope.set('xmlns:SOAP-ENV', 'http://schemas.xmlsoap.org/soap/envelope/');
-    envelope.set('SOAP-ENV:encodingStyle', 'http://schemas.xmlsoap.org/soap/encoding/');
+    var envelope = et.Element('s:Envelope');
+    envelope.set('xmlns:s', 'http://schemas.xmlsoap.org/soap/envelope/');
+    envelope.set('s:encodingStyle', 'http://schemas.xmlsoap.org/soap/encoding/');
 
-    var body = et.SubElement(envelope, 'SOAP-ENV:Body');
+    var body = et.SubElement(envelope, 's:Body');
     var action = et.SubElement(body, 'm:' + actionName);
     action.set('xmlns:m', service.serviceType);
 
